@@ -42,6 +42,7 @@ Route::get('/updateclient', [ClientController::class, 'update']);
 
 Route::get('/deleteclient', [ClientController::class, 'delete']);
 
+Route::get('/createclient', [ClientController::class, 'create']);
 
 
 

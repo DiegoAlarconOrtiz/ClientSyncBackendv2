@@ -23,7 +23,6 @@ class ClientController extends Controller
         return response()->json(Client::all(), 200);
     }
 
-
     public function update()
     {
         $id = request('id');
@@ -36,13 +35,26 @@ class ClientController extends Controller
     
     }
 
-
     public function delete()
     {
         $id = request('id');
         $client = Client::find($id);
         $client->delete();
         return response()->json("ok", 200);
+    }
+
+    public function create() {
+        $client = new Client();
+        $client->name = request('name');
+        $client->lastNames = request('lastNames');
+        $client->email = request('email');
+        $client->phone = request('phone');
+        $client->date = request('date');
+        $client->price = request('price');
+        $client->address = request('address');
+        $client->color = request('color');
+        $client->save();
+        return response()->json($client, 201);
     }
 
     public function ping()
